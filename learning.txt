@@ -1,0 +1,33 @@
+Docker Architecture :
+Images : Is a read only templete with instructions for creating a Docker container
+Container : Is a runable instance of image, that u can start stop move or delete 
+Registry : Is registry Stores Docker images (Docker Hub), u can also create ur own registry
+Client : Is the way that Docker client interacte with docker
+Docker Daemon : listens for Docker API requests and manages Docker objects such (images, container, network, and volume)
+Namespaces : Are a feature of the linux kernel that partitions kernel resources such that one set of processes sees one set of resources
+  
+DockerFile :
+Build images automaticlly by reading the instructions from DockerFile, is a list of command could assemble an image
+	DockerFile -> Build -> Docker Image -> Run -> Docker
+
+
+instructions :
+	FROM
+	Syntax :
+		FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
+	the FROM instruction initialize a new build stage and set the base image for subsequences instruction
+
+	Run
+	Syntax :
+		RUN <command>
+		RUN ["executable", "param1", "param2"]
+	the RUN instruction will execute any commands in a layer  on top of the current image and commit the results
+
+	CMD 
+	Syntax :
+		CMD ["executable","param1","param2"]  // exec form, this is preferable
+		CMD ["param1","param2"] // take param to entry points
+		CMD command param1 param2 
+	!!! there can be only one CMD  in a DockerFile
+
+Difference between foulground and background
